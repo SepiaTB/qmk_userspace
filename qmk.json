@@ -8,7 +8,7 @@
         [
             "crkbd",
             "sepia_3x5",
-            "-eCONVERT_TO=rp2040_ce"
+            "-e CONVERT_TO=rp2040_ce"
         ]
     ]
 }
