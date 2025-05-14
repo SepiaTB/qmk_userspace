@@ -9,5 +9,8 @@
             "crkbd",
             "sepia_3x5"
         ]
-    ]
+    ],
+    "env": {
+        "CONVERT_TO": "rp2040_ce"
+    }
 }
