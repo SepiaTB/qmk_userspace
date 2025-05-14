@@ -12,8 +12,6 @@ jobs:
     with:
       qmk_repo: bastardkb/bastardkb-qmk
       qmk_ref: bkb-master
-    env:
-      CONVERT_TO: rp2040_ce
 
   publish:
     name: 'QMK Userspace Publish'
