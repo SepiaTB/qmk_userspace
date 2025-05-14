@@ -18,6 +18,8 @@ SRC += ./lib/layer_state_reader.c
 SRC += ./lib/keylogger.c 
 # END - OLED Enable
 
+CONVERT_TO=rp2040_ce
+
 BOOTLOADER = atmel-dfu
 ifeq ($(PROMICRO), yes)
     BOOTLOADER = caterina
