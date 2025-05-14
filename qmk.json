@@ -4,6 +4,10 @@
         [
             "bastardkb/charybdis/4x6",
             "sepia_3x5"
+        ],
+        [
+            "crkbd",
+            "sepia_3x5"
         ]
     ]
 }
