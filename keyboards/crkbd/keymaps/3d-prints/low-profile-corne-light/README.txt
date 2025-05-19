@@ -1,0 +1,4 @@
+Corne 3x5 Choc Case Low Profile by jorge23 on Thingiverse: https://www.thingiverse.com/thing:5279623
+
+Summary:
+This is a remix of a remix, I took the last remix and made it slightly shorter to make it compatible with choc switches.All the changes made from the original one are:-Make the external case slightly wider in x and y dimensions to fit the plate (the original didn't fit for me).-Make it taller to half cover choc switches.-Create the spaces for the microcontroller, reset button and TRRS socket.-Thicker plates to make them more robust.(2.8mm)It allows slightly longer microcontrollers (the pro micro with usb c that you can find in aliexpress fits) that is why the space is so big there.You will need 3mm(maybe 4mm also works) m2 inserts and 8mm m2 screws (maybe shorter or longer also works)
