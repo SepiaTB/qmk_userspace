@@ -6,7 +6,7 @@
 #endif // CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
 
 /** \brief Automatically enable sniping-mode on the pointer layer. */
-#define CHARYBDIS_AUTO_SNIPING_ON_LAYER LAYER_POINTER
+// #define CHARYBDIS_AUTO_SNIPING_ON_LAYER LAYER_POINTER
 
 #ifdef CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
 static uint16_t auto_pointer_layer_timer = 0;
@@ -134,16 +134,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [LAYER_POINTER] = LAYOUT(
         // ╭──────────────────────────────────────────────────────╮ ╭──────────────────────────────────────────────────────╮
-             QK_BOOT,  EE_CLR, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, QK_BOOT,  EE_CLR,
+             XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
         // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-             XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, DPI_MOD, S_D_MOD,    S_D_MOD, DPI_MOD, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+             XXXXXXX, QK_BOOT, EE_CLR,  XXXXXXX, DPI_MOD, S_D_MOD,    S_D_MOD, DPI_MOD, XXXXXXX, EE_CLR,  QK_BOOT, XXXXXXX,
         // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-             XXXXXXX, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXXXXXX,    XXXXXXX, KC_RSFT, KC_RCTL, KC_RALT, KC_RGUI, XXXXXXX,
+             XXXXXXX, KC_LCTL, KC_LGUI, KC_LALT, KC_LSFT, XXXXXXX,    XXXXXXX, KC_RSFT, KC_RALT, KC_RGUI, KC_RCTL, XXXXXXX,
         // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
              XXXXXXX, _______, DRGSCRL, SNIPING, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, SNIPING, DRGSCRL, _______, XXXXXXX,
         // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
-                                        KC_BTN2, KC_BTN1, KC_BTN3,    KC_BTN3, KC_BTN1,
-                                                 XXXXXXX, KC_BTN2,    KC_BTN2
+                                        KC_BTN2, KC_BTN1, KC_BTN3,    KC_BTN2, KC_BTN1,
+                                                 XXXXXXX, XXXXXXX,    XXXXXXX
         //                            ╰───────────────────────────╯ ╰──────────────────╯
         ),
 };
