@@ -12,7 +12,7 @@
 static uint16_t auto_pointer_layer_timer = 0;
 
 #    ifndef CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_TIMEOUT_MS
-#        define CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_TIMEOUT_MS 1000
+#        define CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_TIMEOUT_MS 700
 #    endif // CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_TIMEOUT_MS
 
 #    ifndef CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_THRESHOLD
@@ -134,9 +134,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [LAYER_POINTER] = LAYOUT(
         // ╭──────────────────────────────────────────────────────╮ ╭──────────────────────────────────────────────────────╮
-             XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+             XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, QK_BOOT,
         // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-             XXXXXXX, QK_BOOT, EE_CLR,  XXXXXXX, DPI_MOD, S_D_MOD,    S_D_MOD, DPI_MOD, XXXXXXX, EE_CLR,  QK_BOOT, XXXXXXX,
+             XXXXXXX, XXXXXXX, EE_CLR,  XXXXXXX, DPI_MOD, S_D_MOD,    S_D_MOD, DPI_MOD, XXXXXXX, EE_CLR,  XXXXXXX, XXXXXXX,
         // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
              XXXXXXX, KC_LCTL, KC_LGUI, KC_LALT, KC_LSFT, XXXXXXX,    XXXXXXX, KC_RSFT, KC_RALT, KC_RGUI, KC_RCTL, XXXXXXX,
         // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
