@@ -36,7 +36,8 @@ enum custom_keycodes {
 	UNDO,
 	LANG,
 	HIRAGANA,
-	KATAKANA
+	KATAKANA,
+    ESC
 };                 
 
 // clang-format off
@@ -51,8 +52,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         //|-----------+-----------+-----------+-----------+-----------+-----------|                    |-----------+-----------+-----------+-----------+-----------+-----------|
             KC_NO,      ES_Z,       ES_X,       ES_C,       ES_V,       ES_B,                            ES_N,      ES_M,       ES_COMM,    ES_DOT,     ES_MINS,    KC_NO,
         //|-----------+-----------+-----------+-----------+-----------+-----------|                    |-----------+-----------+-----------+-----------+-----------+-----------|
-                            LT(_MEDIA, KC_ESC), LT(_NAV, KC_SPC), LT(_NUM, KC_TAB),                    LT(_SYM_1, KC_ENTER), LT(_SYM_2, KC_BSPC),
-                                                            KC_NO,   KC_NO,                            KC_NO
+                            LT(_MEDIA, ESC), LT(_NAV, KC_SPC), LT(_NUM, KC_TAB),                    LT(_SYM_1, KC_ENTER), LT(_SYM_2, KC_BSPC),
+                                                            KC_NO,   KC_NO,                              KC_NO
         //                                    ╰───────────────────────────────────╯                    ╰───────────────────────────────────╯
     ),
 
@@ -67,8 +68,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         //|-----------+-----------+-----------+-----------+-----------+-----------|                    |-----------+-----------+-----------+-----------+-----------+-----------|
             KC_NO,     ES_AT,      ES_TILD,    ES_LBRC,    ES_RBRC,    ES_CIRC,                          KC_NO,     KC_NO,       KC_NO,      KC_NO,      KC_NO,      KC_NO,
         //|-----------+-----------+-----------+-----------+-----------+-----------|                    |-----------+-----------+-----------+-----------+-----------+-----------|
-                                                            ES_LABK,    ES_RABK,     ES_EQL,              KC_NO,     KC_NO,
-                                                            KC_NO,   KC_NO,                               KC_NO
+                                                ES_LABK,    ES_RABK,     ES_EQL,                          KC_NO,     KC_NO,
+                                                             KC_NO,      KC_NO,                           KC_NO
         //                                    ╰───────────────────────────────────╯                    ╰───────────────────────────────────╯
     ),
 
@@ -82,8 +83,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         //|-----------+-----------+-----------+-----------+-----------+-----------|                    |-----------+-----------+-----------+-----------+-----------+-----------|
             KC_NO,     ES_DIAE,    ES_NOT,     ES_BULT,    ES_HASH,     KC_NO,                           KC_NO,     KC_NO,       KC_NO,      KC_NO,      KC_NO,      KC_NO,
         //|-----------+-----------+-----------+-----------+-----------+-----------|                    |-----------+-----------+-----------+-----------+-----------+-----------|
-                                                            KC_NO,      KC_NO,      KC_NO,                           KC_NO,     KC_NO,
-                                                            KC_NO,   KC_NO,                            KC_NO
+                                                 KC_NO,      KC_NO,      KC_NO,                           KC_NO,     KC_NO,
+                                                             KC_NO,      KC_NO,                           KC_NO
         //                                    ╰───────────────────────────────────╯                    ╰───────────────────────────────────╯
     ),
 
@@ -97,8 +98,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         //|-----------+-----------+-----------+-----------+-----------+-----------|                    |-----------+-----------+-----------+-----------+-----------+-----------|
             KC_NO,      UNDO,       CUT,        COPY,       PASTE,      KC_NO,                          ES_PLUS,     ES_1,       ES_2,       ES_3,      ES_HASH,     KC_NO,
         //|-----------+-----------+-----------+-----------+-----------+-----------|                    |-----------+-----------+-----------+-----------+-----------+-----------|
-                                                            KC_NO,      KC_NO,      KC_NO,                          ES_MINS,     ES_0,
-                                                            KC_NO,   KC_NO,                            KC_NO
+                                                 KC_NO,      KC_NO,      KC_NO,                          ES_MINS,     ES_0,
+                                                             KC_NO,      KC_NO,                            KC_NO
         //                                    ╰───────────────────────────────────╯                    ╰───────────────────────────────────╯
     ),
 
@@ -112,8 +113,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         //|-----------+-----------+-----------+-----------+-----------+-----------|                    |-----------+-----------+-----------+-----------+-----------+-----------|
             KC_NO,     KC_F9,       KC_F10,    KC_F11,      KC_F12,     KC_NO,                          KC_NO,      KC_NO,       KC_NO,     KC_NO,      KC_NO,      KC_NO,
         //|-----------+-----------+-----------+-----------+-----------+-----------|                    |-----------+-----------+-----------+-----------+-----------+-----------|
-                                                KC_MENU,      KC_NO,      KC_NO,                          KC_NO,      KC_DELETE,
-                                                            KC_NO,   KC_NO,                            KC_NO
+                                                KC_MENU,      KC_NO,    KC_NO,                            KC_NO,      KC_DELETE,
+                                                             KC_NO,     KC_NO,                            KC_NO
         //                                    ╰───────────────────────────────────╯                    ╰───────────────────────────────────╯
     ),
 
@@ -127,8 +128,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         //|-----------+-----------+-----------+-----------+-----------+-----------|                    |-----------+-----------+-----------+-----------+-----------+-----------|
             KC_NO,     KC_NO,       KC_NO,     ES_CCED,     KC_NO,      KC_NO,                           KC_NO,      KC_NO,      KC_NO,     KC_NO,      KC_NO,      KC_NO,
         //|-----------+-----------+-----------+-----------+-----------+-----------|                    |-----------+-----------+-----------+-----------+-----------+-----------|
-                                                            KC_NO,      KC_NO,      KC_NO,                          KC_MSTP,    KC_MPLY,
-                                                            KC_NO,   KC_NO,                            KC_NO
+                                                KC_NO,      KC_NO,      KC_NO,                          KC_MSTP,    KC_MPLY,
+                                                            KC_NO,      KC_NO,                            KC_NO
         //                                    ╰───────────────────────────────────╯                    ╰───────────────────────────────────╯
     ),
 
@@ -140,9 +141,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
              XXXXXXX, KC_LCTL, KC_LGUI, KC_LALT, KC_LSFT, XXXXXXX,    XXXXXXX, KC_RSFT, KC_RALT, KC_RGUI, KC_RCTL, XXXXXXX,
         // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-             XXXXXXX, _______, DRG_TOG, DRGSCRL, SNIPING, SNP_TOG,    SNP_TOG, SNIPING, DRGSCRL, DRG_TOG, _______, XXXXXXX,
+             XXXXXXX, _______, DRGSCRL, DRGSCRL, SNIPING, SNP_TOG,    SNP_TOG, SNIPING, DRGSCRL, DRGSCRL, _______, XXXXXXX,
         // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
-                                        KC_BTN2, KC_BTN1, KC_BTN3,    KC_BTN2, KC_BTN1,
+                                        XXXXXXX, KC_BTN1, KC_BTN2,    KC_BTN2, KC_BTN1,
                                                  XXXXXXX, XXXXXXX,    XXXXXXX
         //                            ╰───────────────────────────╯ ╰──────────────────╯
         ),
@@ -160,7 +161,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 		case LALT_T(ES_K):
 		case LGUI_T(ES_L):
 		case RCTL_T(ES_NTIL):
-		case LT(_MEDIA, KC_ESC):
+		case LT(_MEDIA, ESC):
 		case LT(_NAV, KC_SPC):
 		case LT(_NUM, KC_TAB):
 		case LT(_SYM_1, KC_ENTER):
@@ -174,6 +175,15 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 	switch (keycode) {
+        case ESC:
+            if(get_highest_layer(layer_state) == LAYER_POINTER) {
+                layer_off(LAYER_POINTER);
+            } else {
+                register_code(KC_ESC);
+                unregister_code(KC_ESC);
+            }
+            return false;
+
 		case CUT:
 			if (record->event.pressed) {
 				// Ctrl+X (Cut)
