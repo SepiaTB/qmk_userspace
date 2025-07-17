@@ -8,6 +8,8 @@ AUTO_SHIFT_ENABLE = no
 
 VIA_ENABLE = yes
 
+USER = sepia_3x5
+
 # START - OLED Enable
 OLED_ENABLE = yes
 WPM_ENABLE = yes
