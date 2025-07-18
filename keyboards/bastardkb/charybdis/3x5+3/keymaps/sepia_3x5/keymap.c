@@ -16,6 +16,17 @@
  */
 #include QMK_KEYBOARD_H
 
+// Import layer definitions from community layout
+enum sepia_3x5_layers {
+    _QWERTY = 0,
+    _SYM_1,
+    _SYM_2,
+    _FN,
+    _NUM,
+    _NAV,
+    _MEDIA,
+};
+
 #ifdef CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
 #    include "timer.h"
 #endif // CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
