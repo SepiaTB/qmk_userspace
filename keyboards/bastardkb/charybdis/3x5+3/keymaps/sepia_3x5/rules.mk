@@ -7,4 +7,4 @@ LTO_ENABLE = yes
 EXTRAKEY_ENABLE = yes
 AUTO_SHIFT_ENABLE = no
 
-USER = sepia_3x5
+LAYOUTS = split_3x5

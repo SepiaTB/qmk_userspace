@@ -1,1 +1,0 @@
-SRC += $(USER_PATH)/sepia_3x5_common.c

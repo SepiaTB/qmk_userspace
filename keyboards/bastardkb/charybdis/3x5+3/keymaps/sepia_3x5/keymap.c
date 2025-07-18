@@ -15,14 +15,13 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include QMK_KEYBOARD_H
-#include "sepia_3x5_common.h"
 
 #ifdef CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
 #    include "timer.h"
 #endif // CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
 
 enum charybdis_keymap_layers {
-    LAYER_POINTER = 7,  // Continue from where common layers end
+    LAYER_POINTER = 7,  // Continue from where sepia_3x5 layers end
 };
 
 // Automatically enable sniping-mode on the pointer layer.
@@ -48,40 +47,8 @@ static uint16_t auto_pointer_layer_timer = 0;
 #    define SNP_TOG KC_NO
 #endif // !POINTING_DEVICE_ENABLE
 
-enum custom_keycodes {
-    ESC = KEYMAP_SAFE_RANGE,  // Charybdis-specific custom keycode
-};
-
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    [_QWERTY] = LAYOUT_split_3x5_3(
-        LAYOUT_sepia_qwerty()
-    ),
-
-    [_SYM_1] = LAYOUT_split_3x5_3(
-        LAYOUT_sepia_sym1()
-    ),
-
-    [_SYM_2] = LAYOUT_split_3x5_3(
-        LAYOUT_sepia_sym2()
-    ),
-    
-    [_FN] = LAYOUT_split_3x5_3(
-        LAYOUT_sepia_fn()
-    ),
-
-    [_NUM] = LAYOUT_split_3x5_3(
-        LAYOUT_sepia_num()
-    ),
-
-    [_NAV] = LAYOUT_split_3x5_3(
-        LAYOUT_sepia_nav()
-    ),
-    
-    [_MEDIA] = LAYOUT_split_3x5_3(
-        LAYOUT_sepia_media()
-    ),
-
     [LAYER_POINTER] = LAYOUT_split_3x5_3(
         // ╭──────────────────────────────────────────────────────╮ ╭──────────────────────────────────────────────────────╮
              QK_BOOT,  EE_CLR, XXXXXXX, DPI_MOD, S_D_MOD,    S_D_MOD, DPI_MOD, XXXXXXX,  EE_CLR, QK_BOOT,
@@ -93,21 +60,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                         KC_BTN2, KC_BTN1, KC_BTN3,    KC_BTN3, KC_BTN1, KC_BTN2
         //                            ╰───────────────────────────╯ ╰──────────────────╯
         ),
-// clang-format on
+};
 
+// Charybdis-specific process_record to handle pointer layer
 bool process_record_keymap(uint16_t keycode, keyrecord_t *record) {
-    switch (keycode) {
-        case ESC:
-            if(get_highest_layer(layer_state) == LAYER_POINTER) {
-                layer_off(LAYER_POINTER);
-            } else {
-                register_code(KC_ESC);
-                unregister_code(KC_ESC);
-            }
+    if (keycode == KC_ESC && record->event.pressed) {
+        if(get_highest_layer(layer_state) == LAYER_POINTER) {
+            layer_off(LAYER_POINTER);
             return false;
-
-        default:
-            return true; // Continue to process other keys normally
+        }
     }
     return true;
 }
