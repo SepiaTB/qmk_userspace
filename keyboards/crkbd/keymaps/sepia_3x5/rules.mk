@@ -1,3 +1,5 @@
+USER_NAME := sepia_3x5
+
 ###### v3
 RGBLIGHT_ENABLE = no
 RGB_MATRIX_ENABLE = no
@@ -7,8 +9,6 @@ EXTRAKEY_ENABLE = yes
 AUTO_SHIFT_ENABLE = no
 
 VIA_ENABLE = yes
-
-LAYOUTS = split_3x5
 
 # START - OLED Enable
 OLED_ENABLE = yes

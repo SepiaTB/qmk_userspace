@@ -14,18 +14,8 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-#include QMK_KEYBOARD_H
 
-// Import layer definitions from community layout
-enum sepia_3x5_layers {
-    _QWERTY = 0,
-    _SYM_1,
-    _SYM_2,
-    _FN,
-    _NUM,
-    _NAV,
-    _MEDIA,
-};
+#include "sepia_3x5.h"
 
 #ifdef CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
 #    include "timer.h"
@@ -60,6 +50,20 @@ static uint16_t auto_pointer_layer_timer = 0;
 
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+    [_QWERTY] = LAYOUT_split_3x5_3( SEPIA_LAYOUT_QWERTY() ),
+
+    [_SYM_1] = LAYOUT_split_3x5_3( SEPIA_LAYOUT_SYM_1() ),
+
+    [_SYM_2] = LAYOUT_split_3x5_3( SEPIA_LAYOUT_SYM_2() ),
+    
+    [_FN] = LAYOUT_split_3x5_3( SEPIA_LAYOUT_FN() ),
+
+    [_NUM] = LAYOUT_split_3x5_3( SEPIA_LAYOUT_NUM() ),
+
+    [_NAV] = LAYOUT_split_3x5_3( SEPIA_LAYOUT_NAV() ),
+    
+    [_MEDIA] = LAYOUT_split_3x5_3( SEPIA_LAYOUT_MEDIA() ),
+
     [LAYER_POINTER] = LAYOUT_split_3x5_3(
         // ╭──────────────────────────────────────────────────────╮ ╭──────────────────────────────────────────────────────╮
              QK_BOOT,  EE_CLR, XXXXXXX, DPI_MOD, S_D_MOD,    S_D_MOD, DPI_MOD, XXXXXXX,  EE_CLR, QK_BOOT,
@@ -72,8 +76,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         //                            ╰───────────────────────────╯ ╰──────────────────╯
         ),
 };
+// clang-format on
 
-// Charybdis-specific process_record to handle pointer layer
+// Charybdis-specific process_record to handle pointer layer and ESC
 bool process_record_keymap(uint16_t keycode, keyrecord_t *record) {
     if (keycode == KC_ESC && record->event.pressed) {
         if(get_highest_layer(layer_state) == LAYER_POINTER) {
