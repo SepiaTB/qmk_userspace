@@ -1,3 +1,5 @@
+USER_NAME := sepia_3x5
+
 ###### v3
 RGBLIGHT_ENABLE = no
 RGB_MATRIX_ENABLE = no

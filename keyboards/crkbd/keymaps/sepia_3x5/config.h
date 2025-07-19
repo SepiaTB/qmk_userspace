@@ -30,14 +30,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // #define MASTER_RIGHT
 // #define EE_HANDS
 
-#define _QWERTY 0
-#define _SYM_1 1
-#define _SYM_2 2
-#define _FN 3
-#define _NUM 4
-#define _NAV 5
-#define _MEDIA 6
-
 #ifdef VIA_ENABLE
 /* VIA configuration. */
 #    define DYNAMIC_KEYMAP_LAYER_COUNT 7
