@@ -21,6 +21,16 @@
 // #define MASTER_RIGHT
 // #define EE_HANDS
 
+/* Layer definitions */
+#define _QWERTY 0
+#define _SYM_1 1
+#define _SYM_2 2
+#define _FN 3
+#define _NUM 4
+#define _NAV 5
+#define _MEDIA 6
+#define LAYER_POINTER 7
+
 #ifdef VIA_ENABLE
 /* VIA configuration. */
 #    define DYNAMIC_KEYMAP_LAYER_COUNT 8

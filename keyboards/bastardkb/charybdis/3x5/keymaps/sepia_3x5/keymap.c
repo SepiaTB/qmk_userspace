@@ -27,16 +27,7 @@
 #define LAYOUT_split_3x5_3 LAYOUT_charybdis_3x5
 #endif
 
-enum charybdis_keymap_layers {
-    _QWERTY = 0,
-    _SYM_1,
-    _SYM_2,
-    _FN,
-    _NUM,
-    _NAV,
-    _MEDIA,
-    LAYER_POINTER,
-};
+// Layer definitions moved to config.h
 
 // Automatically enable sniping-mode on the pointer layer.
 #define CHARYBDIS_AUTO_SNIPING_ON_LAYER LAYER_POINTER
