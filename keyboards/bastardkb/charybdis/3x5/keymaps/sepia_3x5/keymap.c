@@ -21,6 +21,12 @@
 #    include "timer.h"
 #endif // CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
 
+// Define LAYOUT_split_3x5_3 as alias for LAYOUT_charybdis_3x5
+// The charybdis 3x5 should support 3x5+3 layout based on BastardKB documentation
+#ifndef LAYOUT_split_3x5_3
+#define LAYOUT_split_3x5_3 LAYOUT_charybdis_3x5
+#endif
+
 enum charybdis_keymap_layers {
     _QWERTY = 0,
     _SYM_1,
