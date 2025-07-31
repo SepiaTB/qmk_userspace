@@ -1,19 +1,3 @@
-/**
- * Copyright 2021 Charly Delay <charly@codesink.dev> (@0xcharly)
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 2 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
 #include QMK_KEYBOARD_H
 #include "keymap_spanish.h"
 
@@ -21,16 +5,8 @@
 #    include "timer.h"
 #endif // CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
 
-// Define LAYOUT_split_3x5_3 as alias for LAYOUT_charybdis_3x5
-// The charybdis 3x5 should support 3x5+3 layout based on BastardKB documentation
-#ifndef LAYOUT_split_3x5_3
-#define LAYOUT_split_3x5_3 LAYOUT_charybdis_3x5
-#endif
-
-// Layer definitions moved to config.h
-
-// Automatically enable sniping-mode on the pointer layer.
-#define CHARYBDIS_AUTO_SNIPING_ON_LAYER LAYER_POINTER
+/** \brief Automatically enable sniping-mode on the pointer layer. */
+// #define CHARYBDIS_AUTO_SNIPING_ON_LAYER LAYER_POINTER
 
 #ifdef CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
 static uint16_t auto_pointer_layer_timer = 0;
@@ -49,19 +25,21 @@ static uint16_t auto_pointer_layer_timer = 0;
 #    define DPI_MOD KC_NO
 #    define S_D_MOD KC_NO
 #    define SNIPING KC_NO
-#    define SNP_TOG KC_NO
 #endif // !POINTING_DEVICE_ENABLE
 
+
+
 enum custom_keycodes {
-    CUT = SAFE_RANGE,
-    COPY,
-    PASTE,
-    UNDO,
-    LANG,
-    HIRAGANA,
-    KATAKANA,
+	CUT = SAFE_RANGE,
+	COPY,
+	PASTE,
+	UNDO,
+	LANG,
+	HIRAGANA,
+	KATAKANA,
     ESC
-};
+};                 
+
 
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -272,6 +250,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     return true;
 }
 
+
 #ifdef POINTING_DEVICE_ENABLE
 #    ifdef CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
 report_mouse_t pointing_device_task_user(report_mouse_t mouse_report) {
@@ -308,7 +287,6 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 #endif     // POINTING_DEVICE_ENABLE
 
 #ifdef RGB_MATRIX_ENABLE
-// Forward-declare this helper function since it is defined in
-// rgb_matrix.c.
+// Forward-declare this helper function since it is defined in rgb_matrix.c.
 void rgb_matrix_update_pwm_buffers(void);
 #endif
