@@ -1,6 +1,7 @@
 #include QMK_KEYBOARD_H
 #include <stdio.h>
 #include "wpm.h"
+#include "sepia.h"
 
 // OLED setup
 #define IDLE_FRAMES 5
@@ -10,7 +11,6 @@
 #define ANIM_FRAME_DURATION 200
 #define ANIM_SIZE 512 // 128x32 OLED size in bytes
 
-bool gui_on = true;
 char wpm_str[10];
 uint32_t anim_timer = 0;
 uint32_t anim_sleep = 0;
@@ -37,9 +37,8 @@ static void render_status(void) {
     oled_write(wpm_str, false);
     oled_write_P(PSTR("   WPM"), false);
 
-    // GUI keys indicator
-    if (gui_on) oled_write_P(PSTR("\n       "), false);
-    else oled_write_P(PSTR("\n      GUI   OFF"), false);
+    // Sistema detectado (o elegido con OS_TOGG)
+    oled_write_P(is_mac() ? PSTR("\n      MAC") : PSTR("\n      WIN"), false);
 
     // Caps lock indicator
     led_t led_state = host_keyboard_led_state();

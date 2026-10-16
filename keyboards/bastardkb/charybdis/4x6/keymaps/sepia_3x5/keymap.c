@@ -1,5 +1,6 @@
 #include QMK_KEYBOARD_H
-#include "keymap_spanish.h"
+#include "sepia.h"
+#include "sepia_key_overrides.h"
 
 #ifdef CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
 #    include "timer.h"
@@ -29,16 +30,6 @@ static uint16_t auto_pointer_layer_timer = 0;
 
 
 
-enum custom_keycodes {
-	CUT = SAFE_RANGE,
-	COPY,
-	PASTE,
-	UNDO,
-	LANG,
-	HIRAGANA,
-	KATAKANA,
-    ESC
-};                 
 
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -52,7 +43,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         //|-----------+-----------+-----------+-----------+-----------+-----------|                    |-----------+-----------+-----------+-----------+-----------+-----------|
             KC_NO,      ES_Z,       ES_X,       ES_C,       ES_V,       ES_B,                            ES_N,      ES_M,       ES_COMM,    ES_DOT,     ES_MINS,    KC_NO,
         //|-----------+-----------+-----------+-----------+-----------+-----------|                    |-----------+-----------+-----------+-----------+-----------+-----------|
-                            LT(_MEDIA, ESC), LT(_NAV, KC_SPC), LT(_NUM, KC_TAB),                    LT(_SYM_1, KC_ENTER), LT(_SYM_2, KC_BSPC),
+                            LT(_MEDIA, KC_ESC), LT(_NAV, KC_SPC), LT(_NUM, KC_TAB),                    LT(_SYM_1, KC_ENTER), LT(_SYM_2, KC_BSPC),
                                                             KC_NO,   KC_NO,                              KC_NO
         //                                    ╰───────────────────────────────────╯                    ╰───────────────────────────────────╯
     ),
@@ -94,7 +85,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         //|-----------+-----------+-----------+-----------+-----------+-----------|                    |-----------+-----------+-----------+-----------+-----------+-----------|
             KC_NO,    HIRAGANA,   KATAKANA,    KC_NO,       KC_NO,      KC_NO,                          ES_ASTR,     ES_7,       ES_8,       ES_9,      ES_PERC,     KC_NO,
         //|-----------+-----------+-----------+-----------+-----------+-----------|                    |-----------+-----------+-----------+-----------+-----------+-----------|
-            KC_NO,    KC_CAPS,      LANG,       KC_NO,      KC_NO,      KC_NO,                          ES_SLSH,     ES_4,       ES_5,       ES_6,      ES_EQL,      KC_NO,
+            KC_NO,    KC_CAPS,      LANG,       OS_TOGG,    KC_NO,      KC_NO,                          ES_SLSH,     ES_4,       ES_5,       ES_6,      ES_EQL,      KC_NO,
         //|-----------+-----------+-----------+-----------+-----------+-----------|                    |-----------+-----------+-----------+-----------+-----------+-----------|
             KC_NO,      UNDO,       CUT,        COPY,       PASTE,      KC_NO,                          ES_PLUS,     ES_1,       ES_2,       ES_3,      ES_HASH,     KC_NO,
         //|-----------+-----------+-----------+-----------+-----------+-----------|                    |-----------+-----------+-----------+-----------+-----------+-----------|
@@ -161,7 +152,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 		case LALT_T(ES_K):
 		case LGUI_T(ES_L):
 		case RCTL_T(ES_NTIL):
-		case LT(_MEDIA, ESC):
+		case LT(_MEDIA, KC_ESC):
 		case LT(_NAV, KC_SPC):
 		case LT(_NUM, KC_TAB):
 		case LT(_SYM_1, KC_ENTER):
@@ -172,93 +163,6 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 	}
 }
 
-
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-	switch (keycode) {
-        case ESC:
-            if(get_highest_layer(layer_state) == LAYER_POINTER) {
-                layer_off(LAYER_POINTER);
-            } else {
-                register_code(KC_ESC);
-                unregister_code(KC_ESC);
-            }
-            return false;
-
-		case CUT:
-			if (record->event.pressed) {
-				// Ctrl+X (Cut)
-				register_code(KC_LCTL);
-				register_code(KC_X);
-				unregister_code(KC_X);
-				unregister_code(KC_LCTL);
-			}
-			return false;
-
-		case COPY:
-			if (record->event.pressed) {
-				// Ctrl+C (Copy)
-				register_code(KC_LCTL);
-				register_code(KC_C);
-				unregister_code(KC_C);
-				unregister_code(KC_LCTL);
-			}
-			return false;
-
-		case PASTE:
-			if (record->event.pressed) {
-				// Ctrl+V (Paste)
-				register_code(KC_LCTL);
-				register_code(KC_V);
-				unregister_code(KC_V);
-				unregister_code(KC_LCTL);
-			}
-			return false;
-
-		case UNDO:
-			if (record->event.pressed) {
-				// Ctrl+Z (Undo)
-				register_code(KC_LCTL);
-				register_code(KC_Z);
-				unregister_code(KC_Z);
-				unregister_code(KC_LCTL);
-			}
-			return false;
-
-		case LANG:
-			if (record->event.pressed) {
-				// Alt + Shift
-				register_code(KC_LALT);
-				register_code(KC_LSFT);
-				unregister_code(KC_LSFT);
-				unregister_code(KC_LALT);
-			}
-			return false;
-
-		case HIRAGANA:
-			if (record->event.pressed) {
-				// Shift + Caps Lock
-				register_code(KC_LSFT);
-				register_code(KC_CAPS);
-				unregister_code(KC_CAPS);
-				unregister_code(KC_LSFT);
-			}
-			return false;
-
-		case KATAKANA:
-			if (record->event.pressed) {
-				// Alt + Caps Lock
-				register_code(KC_LALT);
-				register_code(KC_CAPS);
-				unregister_code(KC_CAPS);
-				unregister_code(KC_LALT);
-			}
-			return false;
-
-		default:
-			return true; // Process other keys normally
-	}
-	return true;
-}
 
 
 #ifdef POINTING_DEVICE_ENABLE
