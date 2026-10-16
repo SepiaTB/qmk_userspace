@@ -134,7 +134,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
              XXXXXXX, _______, DRGSCRL, DRGSCRL, SNIPING, SNP_TOG,    SNP_TOG, SNIPING, DRGSCRL, DRGSCRL, _______, XXXXXXX,
         // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
-                                        XXXXXXX, KC_BTN1, KC_BTN2,    KC_BTN2, KC_BTN1,
+                                        XXXXXXX, MS_BTN1, MS_BTN2,    MS_BTN2, MS_BTN1,
                                                  XXXXXXX, XXXXXXX,    XXXXXXX
         //                            ╰───────────────────────────╯ ╰──────────────────╯
         ),
