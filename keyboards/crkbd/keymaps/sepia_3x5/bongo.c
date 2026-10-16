@@ -37,7 +37,7 @@ static void render_status(void) {
     oled_write(wpm_str, false);
     oled_write_P(PSTR("   WPM"), false);
 
-    // Sistema detectado (o elegido con OS_TOGG)
+    // Sistema detectado (o elegido con MAC_WIN)
     oled_write_P(is_mac() ? PSTR("\n      MAC") : PSTR("\n      WIN"), false);
 
     // Caps lock indicator

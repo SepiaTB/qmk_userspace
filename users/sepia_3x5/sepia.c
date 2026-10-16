@@ -107,7 +107,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
 
     switch (keycode) {
-        case OS_TOGG:
+        case MAC_WIN:
             if (record->event.pressed) {
                 set_mac_mode(!is_mac());
             }

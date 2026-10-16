@@ -12,11 +12,11 @@ enum sepia_keycodes {
     LANG,
     HIRAGANA,
     KATAKANA,
-    OS_TOGG, // Alterna a mano entre modo Mac y modo Windows
+    MAC_WIN, // Alterna a mano entre modo Mac y modo Windows
     KEYMAP_SAFE_RANGE,
 };
 
-// Modo Mac activo. Lo fija la detección de sistema al conectar el USB o la tecla OS_TOGG.
+// Modo Mac activo. Lo fija la detección de sistema al conectar el USB o la tecla MAC_WIN.
 // En modo Mac se intercambian Ctrl <-> Cmd para que los atajos se hagan con los mismos dedos que en Windows.
 extern bool sepia_mac_mode;
 
