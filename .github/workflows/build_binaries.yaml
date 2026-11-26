@@ -14,7 +14,8 @@ jobs:
     uses: qmk/.github/.github/workflows/qmk_userspace_build.yml@main
     with:
       qmk_repo: bastardkb/bastardkb-qmk
-      qmk_ref: bkb-master-archive
+      # Commit fijo de la rama bkb-master-archive de BastardKB (congelada desde 2025-08-10). Con el SHA el CI no depende del nombre de la rama.
+      qmk_ref: 8f3b92fff27e6356120913a4ec6b21a017d0fef6
 
   publish:
     name: 'QMK Userspace Publish'
