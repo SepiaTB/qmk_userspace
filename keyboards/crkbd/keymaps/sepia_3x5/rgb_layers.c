@@ -5,6 +5,7 @@
 //     26|21|20|15|12|7    7|12|15|20|21|26
 //              14|13|6    6|13|14
 #ifdef RGBLIGHT_ENABLE
+#include "sepia_layers.h"
 
     #define HSV_PRIMARY HSV_BLUE
     #define HSV_SECONDARY HSV_MAGENTA

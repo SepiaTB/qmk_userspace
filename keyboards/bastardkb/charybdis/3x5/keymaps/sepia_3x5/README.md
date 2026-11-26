@@ -11,6 +11,9 @@ y el sensor PMW3360 de BastardKB (trackball en la mitad derecha).
   en KC_NO pero que la flex de pulgares del Skeletyl cablea. Por eso `keymap.c` define su propia
   macro `LAYOUT_charybdis_3x5_3` (mismo orden que `LAYOUT_split_3x5_3`).
 - Capas: QWERTY, SYM_1, SYM_2, FN, NUM, NAV, MEDIA y POINTER (trackball, se activa al mover la bola).
+  Las 7 primeras son compartidas con el Corne: estan en `users/sepia_3x5/sepia_keymap.h` (macros
+  `SEPIA_*`, numeros de capa en `sepia_layers.h`) y `keymap.c` las pasa por `LAYOUT_sepia`.
+  POINTER (`LAYER_POINTER`, capa 7) es solo de este teclado y sigue en `keymap.c`.
 
 ## Notas
 
@@ -26,4 +29,4 @@ y el sensor PMW3360 de BastardKB (trackball en la mitad derecha).
 
     qmk compile -kb bastardkb/charybdis/3x5 -km sepia_3x5
 
-El codigo comun esta en `users/sepia_3x5` (sepia.c, overrides de teclas, deteccion de sistema).
+El codigo comun esta en `users/sepia_3x5` (sepia.c, overrides de teclas, deteccion de sistema, capas compartidas con el Corne).

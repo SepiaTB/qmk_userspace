@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include "wpm.h"
 #include "sepia.h"
+#include "sepia_layers.h"
 
 // OLED setup
 #define IDLE_FRAMES 5

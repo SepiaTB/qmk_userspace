@@ -28,13 +28,7 @@
  // #undef ROTATIONAL_TRANSFORM_ANGLE
  // #define ROTATIONAL_TRANSFORM_ANGLE -25  // ajustar el angulo
  
- #define _QWERTY 0
- #define _SYM_1 1
- #define _SYM_2 2
- #define _FN 3
- #define _NUM 4
- #define _NAV 5
- #define _MEDIA 6
+ // Capas 0-6 en users/sepia_3x5/sepia_layers.h
  #define LAYER_POINTER 7
  
  #define TAPPING_TOGGLE 2
